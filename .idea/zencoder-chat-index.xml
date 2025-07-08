@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ai.zencoder.plugin.chat.index">
+    <option name="activeChatId" value="205491a1-786e-4b62-a4d6-d75a2862c678" />
+    <option name="chatMetadata" value="{&quot;205491a1-786e-4b62-a4d6-d75a2862c678&quot;:{&quot;id&quot;:&quot;205491a1-786e-4b62-a4d6-d75a2862c678&quot;,&quot;title&quot;:&quot;Dynamic Stock Ticker Input&quot;,&quot;createdAt&quot;:1751998440396,&quot;updatedAt&quot;:1752001720723,&quot;isAgent&quot;:true,&quot;isNameGenerated&quot;:true,&quot;messageCount&quot;:14,&quot;lastMessagePreview&quot;:&quot;This error is occurring because of an issue with how we're executing the SQL query to remove duplica...&quot;}}" />
+  </component>
+</project>
