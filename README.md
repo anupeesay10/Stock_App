@@ -10,5 +10,4 @@ Data Flow:
 
 
 
-
-<img width="395" height="488" alt="stock_data_flow" src="https://github.com/user-attachments/assets/d17f4cc2-6e86-4f97-8d4f-375f4b5c6105" />
+<img width="418" height="500" alt="stock_data_flow_2" src="https://github.com/user-attachments/assets/996f939f-6197-4f33-b2db-cc3e52bed24b" />
