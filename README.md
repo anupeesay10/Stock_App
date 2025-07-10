@@ -1,4 +1,4 @@
-Welcome to the Stock Application! 📈
+Welcome to the Stock Application! 💰📈
 
 This is a Dash application that allows users to input a stock by a ticker value and a date range to display four charts: Candlestick chart, trading volume, daily returns, and drawdowns.
 The user has the option to choose between showing the charts for all years of the date range or the charts for a specific year. There is NO analysis for this project. This is solely an app 
@@ -11,3 +11,12 @@ Data Flow:
 
 
 <img width="418" height="500" alt="stock_data_flow_2" src="https://github.com/user-attachments/assets/996f939f-6197-4f33-b2db-cc3e52bed24b" />
+
+
+To view this project:
+1. Clone the repository
+2. Open the project in an IDE of your choice
+3. Open and run "stock.py"
+
+
+I hope you enjoy this application! 
