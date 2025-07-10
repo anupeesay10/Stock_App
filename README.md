@@ -8,30 +8,7 @@ The program consists of two files that interact with each other: "stock.py" and 
 
 Data Flow:
 
-[User Interface]
-     ↓  ↑
-     |  |
-     |  | HTTP Requests/Responses
-     |  |
-     ↓  ↑
-[stock.py - Dash App]
-     ↓  ↑
-     |  |
-     |  | HTTP Requests/Responses (using requests library)
-     |  |
-     ↓  ↑
-[stock_api.py - Flask API]
-     ↓  ↑
-     |  |
-     |  | SQL Queries
-     |  |
-     ↓  ↑
-[PostgreSQL Database]
-     ↓  ↑
-     |  |
-     |  | API Calls (when needed)
-     |  |
-     ↓  ↑
-[Yahoo Finance API]
 
 
+
+<img width="395" height="488" alt="stock_data_flow" src="https://github.com/user-attachments/assets/d17f4cc2-6e86-4f97-8d4f-375f4b5c6105" />
