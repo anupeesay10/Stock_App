@@ -116,34 +116,14 @@ def load_stock_data():
         df = df.reset_index()
         df['Date'] = pd.to_datetime(df['Date'])
         
-        # Handle data storage more intelligently
+        # Determine if we should append or replace data
         if_exists_action = 'replace'
-        
         if exists:
-            # If we're requesting data outside the existing range
+            # If table exists and we're adding new data, use append
+            # This is a simplification - in a real app you might want to handle overlaps more carefully
             if start_dt < db_min_dt or end_dt > db_max_dt:
-                # Get existing data
-                existing_data = pd.read_sql_query(f"SELECT * FROM {table_name};", engine)
-                
-                # Combine with new data
-                existing_data['Date'] = pd.to_datetime(existing_data['Date'])
-                combined_data = pd.concat([existing_data, df]).drop_duplicates(subset=['Date'])
-                
-                # Sort by date
-                combined_data = combined_data.sort_values('Date')
-                
-                # Replace df with the combined dataset
-                df = combined_data
-                
-                # We'll replace the entire table
-                if_exists_action = 'replace'
-            elif start_dt >= db_min_dt and end_dt <= db_max_dt:
-                # If the requested range is fully within what we have, we don't need to do anything
-                # This case should have been caught earlier, but just in case
-                pass
-            else:
-                # Default to replace for other cases
-                if_exists_action = 'replace'
+                if_exists_action = 'append'
+                # In a more sophisticated version, you'd merge the datasets and handle duplicates
         
         # Save to CSV (optional)
         csv_filename = f"{ticker.lower()}_data.csv"
@@ -152,8 +132,17 @@ def load_stock_data():
         # Save to SQL
         df.to_sql(table_name, engine, if_exists=if_exists_action, index=False)
         
-        # We no longer need this section since we handle duplicates earlier
-        # when combining datasets
+        # If we appended data, we need to remove duplicates
+        if if_exists_action == 'append':
+            # Use pandas to handle duplicates instead of raw SQL
+            # Read all data
+            all_data = pd.read_sql_query(f"SELECT * FROM {table_name};", engine)
+            
+            # Drop duplicates based on Date
+            all_data_deduped = all_data.drop_duplicates(subset=['Date'])
+            
+            # Replace the table with deduplicated data
+            all_data_deduped.to_sql(table_name, engine, if_exists='replace', index=False)
         
         # Read from SQL to verify
         query = f"SELECT * FROM {table_name};"
@@ -186,6 +175,7 @@ def get_stock_data(ticker):
     """
     Get stock data from database
     """
+    print("MY ticker is :", ticker)
     try:
         # Create a unique table name based on the ticker
         table_name = f"{ticker.lower()}_data"
@@ -258,4 +248,4 @@ def get_available_tables():
         }), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)  # Changed port to 5001 to avoid conflict with AirPlay

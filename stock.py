@@ -20,7 +20,7 @@ DEFAULT_START_DATE = "2010-06-29"
 DEFAULT_END_DATE = date.today().strftime("%Y-%m-%d")
 
 # API endpoint
-API_URL = "http://localhost:5000/api"
+API_URL = "http://localhost:5001/api"  # Updated port to 5001 to match the API server
 
 # Dash app
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
@@ -400,4 +400,4 @@ if __name__ == '__main__':
         print("API server started")
     
     # Run the Dash app
-    app.run(debug=True, port=8070)
+    app.run(debug=True, port=8071)  # Changed port to 8071 to avoid conflicts
