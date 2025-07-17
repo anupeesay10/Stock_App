@@ -13,6 +13,12 @@ Data Flow:
 <img width="418" height="500" alt="stock_data_flow_2" src="https://github.com/user-attachments/assets/996f939f-6197-4f33-b2db-cc3e52bed24b" />
 
 
+"stock.py" is the frontend Dash application and "stock_api.py"
+is the backend Flask API. If the data given by the ticker and date 
+range values are valid and correspond to existing data within the database, 
+the existing data is used to create and display the charts. Otherwise, the data is retrieved from Yahoo Finance using yfinance library.
+The new data that is retrieved is then stored in the database for any future use. 
+
 To view this project:
 1. Clone the repository
 2. Open the project in an IDE of your choice
