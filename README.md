@@ -24,5 +24,6 @@ To view this project:
 2. Open the project in an IDE of your choice
 3. Open and run "stock.py"
 
+**Important Note:** Any .csv files in this repository are data retrieved from Yahoo Finance from prior use that were also stored into a .cv file along with in the database. They do **NOT** affect the running of the application.
 
 I hope you enjoy this application! 
